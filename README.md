@@ -1,1 +1,3 @@
-# Interviewbit Solutions
+# Coding Platforms
+
+Solutions/approaches to the problems from various platforms like interviewbit, codechef, codeforces, ...
