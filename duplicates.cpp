@@ -1,14 +1,13 @@
-int repeatedNumber(const vector<int> &A) {
-    int repeated = A[0], nonRepeated = A[0];
-    do{
-       repeated = A[repeated];
-       nonRepeated = A[A[nonRepeated]];
-    }while(nonRepeated != repeated );
-    repeated = A[0];
-    while(repeated != nonRepeated)
-    {
-        repeated =A[repeated];
-        nonRepeated = A[nonRepeated];
+int duplicate_elementsNumber(const vector<int> &A) {
+    int duplicate_elements = A[0], unique_elements = A[0];
+    do {
+       duplicate_elements = A[duplicate_elements];
+       unique_elements = A[A[unique_elements]];
+    } while(unique_elements != duplicate_elements );
+    duplicate_elements = A[0];
+    while(duplicate_elements != unique_elements) {
+        duplicate_elements =A[duplicate_elements];
+        unique_elements = A[unique_elements];
     }
-    return repeated;
+    return duplicate_elements;
 }
