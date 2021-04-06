@@ -1,4 +1,4 @@
-def colorful(self, A):
+def colorful(A):
     tempList, hashSet, s = [], {}, str(A)
     for i in range(len(s)):
         for j in range(i, len(s)):
