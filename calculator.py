@@ -1,11 +1,11 @@
 # cook your dish here
 
 def calculatorOutput(n, k):
-    res, tem = 0, 1
+    res = ""
     while n > 0 or k > 0:
-        res += ((n + k) % 10) * tem
-        tem, n, k = 10, n // 10, k // 10
-    return res
+        tem = ((n % 10) + (k % 10)) % 10
+        res, n, k = res + str(tem), n // 10, k // 10
+    return int(res[::-1])
 
 if __name__ == "__main__":
     t = int(input())
