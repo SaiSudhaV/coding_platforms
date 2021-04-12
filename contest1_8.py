@@ -1,7 +1,7 @@
 def does_subset_exist(ar, n):
     tem = 0
     if n == 1:
-        return "YES" if check2power(arr[0]) else "NO"
+        return "YES" if check2power(ar[0]) else "NO"
     for i in range(32):
         tem |= (1 << i)
     for i in range(32):
