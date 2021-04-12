@@ -5,6 +5,7 @@ class Solution:
         while m < n:
             if A[m] != A[n]:
                 return False
+            m, n = m + 1, n - 1
         return True
     
     def solve(self, A):
