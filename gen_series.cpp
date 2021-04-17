@@ -1,22 +1,24 @@
 #include <iostream>
 
+using namespace std;
+
 int main() {
     int t, i;
-    long long int n, m, k, n, d, ft, num;
+    long long int s, a, l, d, ft, n, num;
     cin >> t;
-    for(i = 0; i < T; i++) {
-        cin >> n, m, k;
-        scanf("%lld %lld %lld", &a, &l, &s);
-        tem = (long long int)(2 * k)/(n + l);
-        tem1 = (long long int)(m - a)/(tem - 5);
-        res = (long long int)(((2 * k) / tem) - (tem - 1) * tem1) / 2;
+    for(i = 0; i < t; i++) {
+        cin >> a >> l >> s;
+        n = (long long int)(2 * s)/(a + l);
+        d = (long long int)(l - a)/(n - 5);
+        ft = (long long int)(((2*s)/n)-(n-1)*d)/2;
+        num = (long long int)n;
 
         if (i >= 1)
-            cout << "\n" <<(long long int)tem << endl;
+            printf("\n%lld\n", num);
         else
-            cout << (long long int)tem << endl;
+            printf("%lld\n", num);
         while(n >= 1) {
-            cout << (long long int)tem << endl;
+            printf("%lld ", ft);
             ft += d;
             n--;
         }
