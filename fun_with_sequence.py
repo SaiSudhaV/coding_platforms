@@ -2,7 +2,6 @@
 
 def gen_sequence(ar, n, br, m):
     tem1, tem2 = sum(ar), sum(br)
-    print(tem1 * m, tem2 * n)
     return ar if tem1 / n > tem2 / m else br
 
 if __name__ == "__main__":
