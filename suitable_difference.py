@@ -17,4 +17,4 @@ if __name__ == "__main__":
     t = int(input())
     for i in range(t):
         ar1, ar2 = list(map(int, input().split())), list(map(int, input().split()))
-        print(suitable_difference(ar1[1:], ar2[1:], len(ar1), len(ar2)))
+        print(suitable_difference(sorted(ar1[1:]), sorted(ar2[1:]), len(ar1[1:]), len(ar2[1:])))
