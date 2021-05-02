@@ -1,20 +1,10 @@
 # cook your dish here
 
-def f(ar, n, k):
-    ar = ar[-k:] + ar[: n - k]
-    return ar
-    
-def concat(ar, br):
-    res = ar
-    for i in br:
-        res.append(i)
-    return res
-
-def array_rotation(ar, qr, t):
+def array_rotation(k, t):
     res = []
-    for i in qr:
-        ar = concat(ar, f(ar, len(ar), i))
-        res.append(sum(ar))
+    for i in range(t):
+        k = (k * 2) % 1000000007
+        res.append(k)
     return "\n".join(str(i) for i in res)
 
 if __name__ == "__main__":
@@ -22,4 +12,4 @@ if __name__ == "__main__":
     ar = list(map(int, input().split()))
     t = int(input())
     qr = list(map(int, input().split()))
-    print(array_rotation(ar, qr, t))
+    print(array_rotation(sum(ar), t))
