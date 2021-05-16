@@ -17,6 +17,7 @@ if __name__ == "__main__":
         ar, br = [], []
         for i in  range(n):
             p, s = map(int, input().split())
-            ar.append(p)
-            br.append(s)
+            if p <= 8:
+                ar.append(p)
+                br.append(s)
         print(calculate_score(ar, br, len(ar)))
