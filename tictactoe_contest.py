@@ -18,21 +18,13 @@ def is_valid(ar):
     return 2 if total != 0 else 1
 
 def check_board(ar, k):
-    if ar[0] == k and ar[0] == ar[1] and ar[0] == ar[2]:
+    if (ar[0] == k and ar[0] == ar[1] and ar[0] == ar[2]) or (ar[0] == k and ar[0] == ar[3] and ar[0] == ar[6]):
         return 1
-    if ar[0] == k and ar[0] == ar[3] and ar[0] == ar[6]:
+    if (ar[0] == k and ar[0] == ar[4] and ar[0] == ar[8]) or (ar[1] == k and ar[1] == ar[4] and ar[1] == ar[7]):
         return 1
-    if ar[0] == k and ar[0] == ar[4] and ar[1] == ar[7]:
+    if (ar[2] == k and ar[2] == ar[4] and ar[2] == ar[6]) or (ar[2] == k and ar[2] == ar[5] and ar[2] == ar[8]):
         return 1
-    if ar[1] == k and ar[1] == ar[4] and ar[1] == ar[8]:
-        return 1
-    if ar[2] == k and ar[2] == ar[4] and ar[2] == ar[6]:
-        return 1
-    if ar[2] == k and ar[2] == ar[5] and ar[2] == ar[8]:
-        return 1
-    if ar[3] == k and ar[3] == ar[4] and ar[3] == ar[5]:
-        return 1
-    if ar[6] == k and ar[6] == ar[7] and ar[6] == ar[8]:
+    if (ar[3] == k and ar[3] == ar[4] and ar[3] == ar[5]) or (ar[6] == k and ar[6] == ar[7] and ar[6] == ar[8]):
         return 1
     return 0
 
