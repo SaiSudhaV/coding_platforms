@@ -1,10 +1,19 @@
 # cook your dish here
 
 def possible_set(ar, n):
-    res = []
-    if ar.count("cakewalk") == 1 and ar.count("simple") == 1 and ar.count("easy") == 1 and (ar.count("hard") == 1 or ar.count("medium-hard") == 1) and (ar.count("medium") == 1 or ar.count("easy-medium") == 1):
-        return "Yes"
-    return "No"
+    res = [0] * n
+    for i in ar:
+        if i == "easy":
+            res[0] = 1
+        elif i == "cakewalk":
+            res[1] = 1
+        elif i == "simple":
+            res[2] = 1
+        elif i == "medium-hard" or i == "hard":
+            res[3] = 1
+        elif i == "easy-medium" or i == "medium":
+            res[4] = 1
+    return "Yes" if res.count(1) == 5 else "No"
 
 if __name__ == "__main__":
     t = int(input())
