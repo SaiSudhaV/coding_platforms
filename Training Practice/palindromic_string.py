@@ -1,4 +1,4 @@
-# You are provided with a string of numbers, check whether it is a palindrome or not. If it is not a palindrome, then, reverse the string, add it to the original string 
+# 11 You are provided with a string of numbers, check whether it is a palindrome or not. If it is not a palindrome, then, reverse the string, add it to the original string 
 # and check again. You are required to repeat the process until it becomes palindrome. Find the length of palindromic string.
 
 def is_palindrome(s):
