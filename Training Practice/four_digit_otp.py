@@ -1,4 +1,4 @@
-# You will be given a number in the form of string, extract out digits at odd places, square & merge them. First 4 digits will be the required OTP.
+# 12 You will be given a number in the form of string, extract out digits at odd places, square & merge them. First 4 digits will be the required OTP.
 
 def gen_OTP(ar, n):
     tem = [int(ar[i]) for i in range(n) if i % 2 != 0]
