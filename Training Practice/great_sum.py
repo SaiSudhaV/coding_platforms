@@ -1,4 +1,4 @@
-#Given a special set of numbers and a special sum. Find all those combinations from the given set, equaling the given sum.
+# 10 Given a special set of numbers and a special sum. Find all those combinations from the given set, equaling the given sum.
 
 from itertools import combinations as comb
 
