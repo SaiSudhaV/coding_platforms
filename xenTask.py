@@ -10,7 +10,7 @@ def total_min_time(ar, br, n):
         tem2.append(ar[j])
     for j in range(1, n, 2):
         tem2.append(br[j])
-    return sum(tem1) if sum(tem1) > sum(tem2) else sum(tem2)
+    return sum(tem2) if sum(tem1) > sum(tem2) else sum(tem1)
 
 if __name__ == "__main__":
     t = int(input())
