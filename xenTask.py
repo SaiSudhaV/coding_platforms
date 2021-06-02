@@ -1,12 +1,22 @@
 # cook your dish here
 
-def odd_sum(ar, n):
-    return sum([i for i in ar if ar.index(i) % 2 == 0])
-
 def total_min_time(ar, br, n):
-    odd1, odd2, even1, even2 = odd_sum(ar, n), odd_sum(br, n), sum(ar) - odd_sum(ar, n), sum(br) - odd_sum(br, n)
-    tem1, tem2 = odd2 + even1, odd1 + even2
-    return tem2 if tem1 > tem2 else tem1
+    tem, tem1, tem2, tem3 = 0, 0, 0, 0
+    for i in range(n):
+        if tem != 0:
+            tem2 += br[i]
+            tem = 0
+        else:
+            tem2 += ar[i]
+            tem = 1
+    for i in range(n):
+        if tem1 == 0:
+            tem3 += br[i]
+            tem1 = 1
+        else:
+            tem3 += ar[i]
+            tem1 = 0
+    return tem2 if tem3 > tem2 else tem3
 
 if __name__ == "__main__":
     t = int(input())
