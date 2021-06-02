@@ -1,15 +1,15 @@
 # cook your dish here
 
-from math import inf
-
 def solve(ar, br, n, k):
-    t1, t2 = inf, inf
+    t1, t2 = 100, 100
     for i in range(n):
-        if br[i] == 0 and t1 > ar[i]:
-            t1 = ar[i]
-        elif br[i] == 1 and t2 > ar[i]:
-            t2 = ar[i]
-    return "no" if t1 + t2 + k else "yes"
+        if br[i] == 0:
+            if t1 > ar[i]:
+                t1 = ar[i]
+        else:
+            if t2 > ar[i]:
+                t2 = ar[i]
+    return "no" if t1 + t2 + k > 100 else "yes"
 
 if __name__ == "__main__":
     t = int(input())
