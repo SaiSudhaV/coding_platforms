@@ -1,67 +1,61 @@
-from bisect import bisect_left
-from math import sqrt as sq
+from bisect import bisect_left as bl
+ 
 class Solution:
     # @param A : list of integers
     # @param B : list of integers
     # @return a list of integers
-    def solve(self, A, B):
-        frequencies = self.getFrequency(A)
-        n, proA = len(A), []
+ 
+    def countArray(self, A, n):
+        left, right, top, tem = [1] * n, [1] * n, -1, []
         for i in range(n):
-            proA.append(self.divisorProduct(A[i]))
-        fA = list(zip(proA, frequencies))
-        fA.sort(reverse = True)
-        V, accumulated = [], 0
-        for i in range(n):
-            accumulated += fA[i][1]
-            V.append(accumulated)
-        res = []
-        for i in B:
-            res.append(fA[bisect_left(V, i)][0])
-        #query 5
-        return res
-
-    def getFrequency(self, A):
-        n = len(A)
-        L, R = [1] * n, [1] * n
-        S, top = [], -1
-        for i in range(n):
-            while(top >= 0 and A[S[top]] <= A[i]):
-                S.pop()
+            while top >= 0 and A[tem[top]] <= A[i]:
                 top -= 1
-            if (top >= 0):
-                L[i] = i - S[top]
+                tem.pop()
+            if top >= 0:
+                left[i] = i - tem[top]
             else:
-                L[i] = i + 1
-            S.append(i)
+                left[i] = i + 1
+            tem.append(i)
             top += 1
-        S = []
-        top = -1
-        for i in range(n-1, -1, -1):
-            while(top >= 0 and A[S[top]] < A[i]):
-                S.pop()
+        tem, top = [], -1
+        for i in range(n - 1, -1, -1):
+            while top >= 0 and A[tem[top]] < A[i]:
+                tem.pop()
                 top -= 1
-            if (top >= 0):
-                R[i] = S[top] - i
+            if top >= 0:
+                right[i] = tem[top] - i
             else:
-                R[i] = n - i
-            S.append(i)
+                right[i] = n - i
+            tem.append(i)
             top += 1
         for i in range(n):
-            L[i] *= R[i]
-        return L
+            left[i] *= right[i]
+        return left
         
-    def divisorProduct(self, A):
-        div, res = 2, 1
-        for i in range(2, int(sq(A))  + 1):
+    def calculate(self, A):
+        tem, res = 2, 1
+        for i in range(2, int(A ** 0.5)+1):
             if A % i == 0:
                 if A // i != i:
-                    div += 1
-                div += 1
-        for _ in range(div // 2):
-            res *= A
-            res %= (10 ** 9 + 7)
-        if div % 2 != 0:
-            res *= sq(A)
-            res %= (10 ** 9 + 7)
+                    tem += 1
+                tem += 1
+        for i in range(tem // 2):
+            res = (res * A) % 1000000007
+        if tem % 2:
+            res = (res * (A ** 0.5)) % 1000000007
         return int(res)
+    
+    def solve(self, A, B):
+        n = len(A)
+        counts, res, tem = self.countArray(A, n), [], []
+        for i in range(n):
+            tem.append(self.calculate(A[i]))
+        tem = sorted(list(zip(tem, counts)), reverse = True)
+        ptr, p = [], 0
+        for i in range(n):
+            p += tem[i][1]
+            ptr.append(p)
+        res = []
+        for i in B:
+            res.append(tem[bl(ptr, i)][0])
+        return res
